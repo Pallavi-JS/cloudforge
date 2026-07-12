@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 export async function POST(req: Request) {
   try {
     const { name, email, password } = await req.json();
-
+    console.log("DATABASE_URL =", process.env.DATABASE_URL);
     const existingUser = await prisma.user.findUnique({
       where: {
         email,
