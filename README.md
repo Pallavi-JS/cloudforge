@@ -1,114 +1,164 @@
 # ☁️ CloudForge – AI-Powered Cloud Deployment Platform
 
-CloudForge is an AI-powered cloud deployment platform inspired by modern DevOps tools like Vercel and Railway. It enables users to manage applications, deployments, and servers through an intelligent dashboard with AI-assisted deployment planning, monitoring, reporting, and analytics.
+CloudForge is a full-stack cloud deployment and infrastructure management platform inspired by modern DevOps tools such as **Vercel**, **Railway**, and **Render**. It enables users to manage cloud applications, deployments, and servers through a modern dashboard with AI-assisted deployment analysis, monitoring, reporting, and infrastructure visualization.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
-- 🔐 User Authentication (JWT)
-- 📦 Application Management
-- 🚀 Deployment Management
-- 🖥️ Server Management
-- 🤖 AI Deployment Agent
-- 🔍 AI Error Diagnosis
-- 📚 AI Knowledge Assistant
-- 📋 AI Deployment Planner
-- 🎮 Deployment Simulator
-- 📈 Dashboard Analytics
-- 📊 Interactive Charts
-- 🔔 Notifications
-- 📄 PDF Report Generation
-- 🏗️ Cloud Architecture Visualization
-- 🟢 System Health Monitoring
-- 📜 Activity Timeline
+## 🔐 Authentication
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Dashboard
+
+## 📦 Application Management
+- Create Applications
+- View Applications
+- Update Applications
+- Delete Applications
+
+## 🖥️ Server Management
+- Add Servers
+- Update Server Details
+- Delete Servers
+- Live Server Health Monitoring
+- CPU Usage Monitoring
+- Memory Usage Monitoring
+- Health Score Calculation
+
+## 🚀 Deployment Management
+- Create Deployments
+- Edit Deployments
+- Delete Deployments
+- Deployment Status Tracking
+- Deployment Pipeline Visualization
+
+## 🤖 AI Modules
+
+- AI Multi-Agent System
+- AI Deployment Agent
+- AI Error Diagnosis
+- AI Knowledge Assistant
+- AI Deployment Planner
+- AI Deployment Simulator
+
+## 📊 Dashboard
+
+- Infrastructure Overview
+- Cloud Deployment Pipeline
+- Interactive Charts
+- Resource Distribution
+- System Statistics
+- AI Infrastructure Insights
+
+## 📈 Monitoring
+
+- System Health Monitoring
+- Activity Timeline
+- Notifications
+- Reports
+- Cloud Architecture Visualization
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-### Frontend
+## Frontend
+
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
 
-### Backend
+## Backend
+
 - Next.js API Routes
 - Prisma ORM
 
-### Database
+## Database
+
 - PostgreSQL (Neon)
 
-### Authentication
+## Authentication
+
 - JWT (JSON Web Token)
 
-### AI Modules
-- Deployment Recommendation
-- Error Diagnosis
-- Knowledge Assistant
-- Deployment Planning
+## ORM
 
-### Other Libraries
+- Prisma
+
+## Charts
+
 - Chart.js
 - React ChartJS 2
+
+## Reports
+
 - jsPDF
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
 CloudForge
 │
-├── app/
-│   ├── dashboard/
-│   ├── api/
-│   ├── login/
-│   └── register/
+├── app
+│   ├── api
+│   ├── dashboard
+│   ├── login
+│   └── register
 │
-├── components/
+├── components
 │
-├── prisma/
+├── lib
 │
-├── public/
+├── prisma
+│
+├── public
 │
 └── README.md
 ```
 
 ---
 
-## 🏛 System Architecture
+# 🏗 System Architecture
 
 ```
-User
-   │
-Next.js Frontend
-   │
-JWT Authentication
-   │
-AI Decision Engine
-   │
-Deployment Manager
-   │
-Server Management
-   │
-PostgreSQL (Neon)
+                User
+                  │
+                  ▼
+         Next.js Frontend
+                  │
+                  ▼
+        JWT Authentication
+                  │
+                  ▼
+        Next.js API Routes
+                  │
+        ┌─────────┴─────────┐
+        ▼                   ▼
+ Prisma ORM           AI Modules
+        │
+        ▼
+ PostgreSQL (Neon)
 ```
 
 ---
 
-## 📊 Dashboard Modules
+# 📊 Dashboard Modules
 
-- Dashboard Overview
+- Dashboard
 - Applications
 - Deployments
 - Servers
-- AI Deployment Agent
-- Error Diagnosis
-- Knowledge Agent
+- AI Multi-Agent
+- Deployment Agent
 - Deployment Planner
 - Deployment Simulator
+- Error Diagnosis
+- Knowledge Assistant
 - Reports
 - Notifications
 - Activity Timeline
@@ -117,7 +167,7 @@ PostgreSQL (Neon)
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
 Clone the repository
 
@@ -125,7 +175,7 @@ Clone the repository
 git clone https://github.com/Pallavi-JS/cloudforge.git
 ```
 
-Go to the project
+Move into the project
 
 ```bash
 cd CloudForge/apps/web
@@ -137,7 +187,16 @@ Install dependencies
 npm install
 ```
 
-Run the application
+Configure environment variables
+
+Create a `.env` file:
+
+```env
+DATABASE_URL=YOUR_NEON_DATABASE_URL
+JWT_SECRET=YOUR_SECRET_KEY
+```
+
+Run the project
 
 ```bash
 npm run dev
@@ -151,20 +210,54 @@ http://localhost:3000
 
 ---
 
-## 🎯 Future Enhancements
+# 📷 Project Screenshots
+
+Add screenshots here after deployment.
+
+- Login Page
+- Dashboard
+- Applications
+- Servers
+- Deployments
+- AI Multi-Agent
+- Deployment Planner
+- Deployment Simulator
+- Reports
+- Cloud Architecture
+
+---
+
+# 🌟 Key Highlights
+
+- Full Stack Cloud Deployment Platform
+- JWT Authentication
+- PostgreSQL Database
+- Prisma ORM
+- Interactive Dashboard
+- Cloud Infrastructure Monitoring
+- AI-Assisted Deployment Modules
+- Deployment Analytics
+- Professional UI Design
+- REST API Architecture
+
+---
+
+# 🎯 Future Enhancements
 
 - Docker Deployment
-- Kubernetes Support
-- CI/CD Integration
+- Kubernetes Integration
 - GitHub Repository Integration
+- CI/CD Pipeline
 - Multi-Cloud Deployment
 - AI Log Analysis
 - AI Cost Optimization
 - Real-Time Monitoring
+- Email Notifications
+- Role-Based Access Control (RBAC)
 
 ---
 
-## 👩‍💻 Developer
+# 👩‍💻 Developer
 
 **Pallavi**
 
@@ -174,12 +267,6 @@ AI & Full Stack Developer
 
 ---
 
-## ⭐ Project Highlights
+# ⭐ If you like this project
 
-- Full Stack Cloud Platform
-- AI-Assisted Deployment
-- Modern Dashboard UI
-- Prisma + PostgreSQL
-- JWT Authentication
-- Interactive Analytics
-- Professional Architecture
+Give it a ⭐ on GitHub.
