@@ -3,117 +3,55 @@
 import { useState } from "react";
 
 export default function ErrorAgentPage() {
-  const [log, setLog] = useState("");
+  const [log, setLog] = useState(
+    "Error: Connection refused to PostgreSQL database.\nThe application cannot connect to the database server."
+  );
+
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const analyzeLog = () => {
-    const text = log.toLowerCase();
-
-    if (text.includes("out of memory")) {
-      setResult(`
-🟡 Memory Issue Detected.
-
-Possible Solution:
-• Restart services
-• Increase server RAM
-• Check for memory leaks
-      `);
+  const analyzeLog = async () => {
+    if (!log.trim()) {
+      alert("Please enter an error log.");
+      return;
     }
 
-    else if (text.includes("connection refused")) {
-      setResult(`
-🔴 Connection Error Detected.
+    setLoading(true);
+    setResult("");
 
-Possible Solution:
-• Server may be down
-• Check firewall settings
-• Verify IP address and port
-• Restart the application
-      `);
-    }
+    try {
+      const response = await fetch("/api/ai/diagnosis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          log,
+        }),
+      });
 
-    else if (text.includes("disk full")) {
-      setResult(`
-🟠 Disk Space Issue Detected.
+      const data = await response.json();
 
-Possible Solution:
-• Delete unnecessary files
-• Clear logs and cache
-• Increase storage capacity
-      `);
-    }
+      if (!response.ok) {
+        throw new Error(data.error || "AI diagnosis failed");
+      }
 
-    else if (text.includes("timeout")) {
-      setResult(`
-🟠 Timeout Error Detected.
-
-Possible Solution:
-• Check network connectivity
-• Restart server
-• Increase timeout configuration
-• Investigate heavy CPU usage
-      `);
-    }
-
-    else if (
-      text.includes("permission denied")
-    ) {
-      setResult(`
-🔴 Permission Error Detected.
-
-Possible Solution:
-• Check file permissions
-• Verify user roles
-• Run application with proper privileges
-      `);
-    }
-
-    else if (
-      text.includes("database") ||
-      text.includes("sql")
-    ) {
-      setResult(`
-🔵 Database Error Detected.
-
-Possible Solution:
-• Check database server status
-• Verify connection string
-• Check username and password
-• Restart database service
-      `);
-    }
-
-    else if (
-      text.includes("cpu") ||
-      text.includes("high cpu")
-    ) {
-      setResult(`
-🟠 High CPU Usage Detected.
-
-Possible Solution:
-• Stop unnecessary processes
-• Scale server resources
-• Investigate infinite loops
-• Restart services
-      `);
-    }
-
-    else {
-      setResult(`
-⚪ Unknown Error.
-
-Possible Solution:
-• Check application logs
-• Restart the service
-• Contact administrator
-      `);
+      setResult(data.diagnosis);
+    } catch (error) {
+      setResult(
+        `❌ AI Diagnosis Failed\n\n${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <main className="min-h-screen bg-slate-950 text-white p-10">
       <h1 className="text-5xl font-bold mb-10">
-        🔍 Error Diagnosis Agent
+        🔍 AI Error Diagnosis Agent
       </h1>
 
       <div className="bg-slate-900 p-8 rounded-xl">
@@ -122,24 +60,27 @@ Possible Solution:
         </h2>
 
         <textarea
-          rows={8}
+          rows={10}
           value={log}
-          onChange={(e) =>
-            setLog(e.target.value)
-          }
+          onChange={(e) => setLog(e.target.value)}
           placeholder="Paste your error log here..."
           className="w-full p-4 rounded-lg bg-slate-800 mb-6"
         />
 
         <button
           onClick={analyzeLog}
-          className="bg-red-500 px-6 py-3 rounded-lg"
+          disabled={loading}
+          className="bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-600 px-6 py-3 rounded-lg font-bold"
         >
-          Analyze Log
+          {loading ? "🤖 AI Analyzing..." : "🔍 Diagnose Error"}
         </button>
 
         {result && (
           <div className="mt-8 bg-slate-800 p-6 rounded-lg whitespace-pre-line">
+            <h2 className="text-2xl font-bold mb-4 text-cyan-400">
+              🤖 Gemini AI Diagnosis
+            </h2>
+
             {result}
           </div>
         )}
