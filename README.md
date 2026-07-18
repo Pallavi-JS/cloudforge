@@ -270,3 +270,38 @@ AI & Full Stack Developer
 # ⭐ If you like this project
 
 Give it a ⭐ on GitHub.
+
+## 📸 Screenshots
+
+### 🏠 Landing Page
+![Landing Page](screenshots/landing-page.png)
+
+### 📊 Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### 🚀 Applications
+![Applications](screenshots/applications.png)
+
+### 🖥️ Servers
+![Servers](screenshots/servers.png)
+
+### 📦 Deployments
+![Deployments](screenshots/deployments.png)
+
+### 🤖 AI Health Agent
+![AI Health Agent](screenshots/ai-health-agent.png)
+
+### 🔍 Error Diagnosis Agent
+![Error Diagnosis Agent](screenshots/error-diagnosis-agent.png)
+
+### 🚀 AI Deployment Agent
+![AI Deployment Agent](screenshots/deployment-agent.png)
+
+### 🧠 AI Deployment Planner
+![AI Deployment Planner](screenshots/deployment-planner.png)
+
+### 🧪 Deployment Simulator
+![Deployment Simulator](screenshots/deployment-simulator.png)
+
+### 📚 Knowledge Agent
+![Knowledge Agent](screenshots/knowledge_agent.jpg)
